@@ -1,15 +1,17 @@
-const { path } = require('path');
+const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
   //entry point
-  entry: './src/index.tsx',
+  entry: path.resolve(__dirname, '..', './src/index.tsx'),
   mode: 'development',
 
   //resolve is so that we dont have to put ts tsx js jsx file while importing
+
   resolve: {
-    extensions: ['.tsx', '.jsx', 'js', 'ts'],
+    extensions: ['.tsx', '.jsx', '.js', '.ts'],
   },
+  devtool: 'inline-source-map', //better for dev as source code is mapped in bundled code //use source-map for prod for better debugging
 
   module: {
     rules: [
@@ -19,6 +21,13 @@ module.exports = {
         use: [
           {
             loader: 'babel-loader',
+            options: {
+              presets: [
+                '@babel/preset-env',
+                '@babel/preset-react',
+                '@babel/preset-typescript',
+              ], // @babel/preset-env transpiles es2015+ and preset-react transpiles react code
+            },
           },
         ], // telling webpack to pipe the js ts files through babel. The loader will use Babel to compile modern es6+ files to es5
       },
