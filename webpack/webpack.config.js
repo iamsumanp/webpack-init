@@ -33,12 +33,18 @@ module.exports = {
       },
       {
         //for css files
+        test: /\.css$/, //modify for scss
+        use: ['style-loader', 'css-loader'],
       },
       {
         //for images files
+        test: /\.(?:ico|gif|png|jpg|jpeg)$/i,
+        type: 'asset/resource', //treated as sepereate assets and emitted to the output
       },
       {
         //for svg files
+        test: /\.(woff(2)?|eot|ttf|otf|svg|)$/,
+        type: 'asset/inline',
       },
     ],
   },
