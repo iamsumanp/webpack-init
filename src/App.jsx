@@ -1,7 +1,14 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import './styles.css';
 function App() {
   const name = 'sdf';
+  const [open, setIsOpen] = useState < any > '';
+
+  useEffect(() => {
+    console.log('object');
+    setIsOpen(Math.random());
+  }, []);
+
   return <h1>Hello Manually created react app</h1>;
 }
 
