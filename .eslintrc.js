@@ -5,6 +5,9 @@ module.exports = {
     commonjs: true,
     es6: true,
   },
+  extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  parser: '@typescript-eslint/parser',
+  root: true,
 
   parserOptions: {
     ecmaVersion: 'latest',
@@ -33,36 +36,56 @@ module.exports = {
     'react/no-children-prop': 'error',
     'react-hooks/exhaustive-deps': 'error',
     'no-unused-vars': 'warn',
-
-    // quotes: ['warn', 'single'],
-
-    // '@typescript-eslint/no-explicit-any': 'off',
-    // '@typescript-eslint/no-non-null-assertion': 'off',
-    // '@typescript-eslint/no-unsafe-return': 'off',
-    // '@typescript-eslint/no-unsafe-member-access': 'off',
-    // '@typescript-eslint/no-unsafe-assignment': 'off',
-    // '@typescript-eslint/no-unsafe-argument': 'off',
-    // '@typescript-eslint/restrict-plus-operands': 'off',
-    // '@typescript-eslint/ban-types': 'off',
-    // '@typescript-eslint/no-unnecessary-type-assertion': 'off',
-    // '@typescript-eslint/no-unsafe-call': 'off',
-    // '@typescript-eslint/no-floating-promises': 'off',
-    // '@typescript-eslint/restrict-template-expressions': 'off',
-    // '@typescript-eslint/ban-ts-comment': 'off',
-    // '@typescript-eslint/no-empty-interface': 'off',
-    // '@typescript-eslint/require-await': 'off',
-    // '@typescript-eslint/unbound-method': 'off',
-    // '@typescript-eslint/no-misused-promises': 'off',
-    // 'react/no-children-prop': 'off',
-    // 'react/no-unescaped-entities': 'off',
-    // 'react/display-name': 'off',
-    // 'react-hooks/rules-of-hooks': 'error',
-    // 'react-hooks/exhaustive-deps': 'error',
-    // 'prefer-const': 'warn',
-    // 'no-unused-vars': 'error',
   },
   //this contains list of all plugin that provide the linting rules
   //@typescript-eslint integrates eslint with typescript specific linting rules
   plugins: ['react', '@typescript-eslint', 'import', 'react-hooks', 'prettier'],
 };
-// "lint": "eslint --fix \"./src/**/*.{js,jsx,ts,tsx,json}\""
+module.exports = {
+  env: {
+    browser: true,
+    node: true,
+    commonjs: true,
+    es6: true,
+  },
+  parser: '@typescript-eslint/parser',
+  parserOptions: {
+    ecmaVersion: 'latest',
+    sourceType: 'module',
+    tsx: true,
+    ts: true,
+    jsx: true,
+  },
+  settings: {
+    react: {
+      version: 'detect',
+    },
+  },
+  // extends: ['eslint:recommended', 'plugin:@typescript-eslint/recommended'],
+  extends: [
+    'eslint:recommended',
+    'plugin:react/recommended',
+    // 'plugin:react-hooks/recommended',
+    'plugin:@typescript-eslint/recommended',
+
+    'plugin:import/warnings',
+    'plugin:import/typescript',
+    'plugin:jsx-a11y/recommended',
+    // 'plugin:eslint-comments/recommended',
+    // 'prettier/@typescript-eslint',
+    // 'plugin:prettier/recommended',
+  ],
+  rules: {
+    // 'no-unused-vars': 'warn',
+    'react-hooks/exhaustive-deps': 'error',
+    '@typescript-eslint/no-explicit-any': 'warn',
+    // 'no-unused-vars': 'warn',
+    '@typescript-eslint/no-unused-vars': ['warn'],
+    '@typescript-eslint/no-var-requires': 'off',
+    'react/prop-types': 'off',
+    'react/jsx-uses-react': 'off',
+    'react/react-in-jsx-scope': 'off',
+    '@typescript-eslint/explicit-module-boundary-types': 'off',
+  },
+  plugins: ['react', '@typescript-eslint', 'import', 'react-hooks', 'prettier'],
+};
