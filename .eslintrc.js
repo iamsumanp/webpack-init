@@ -36,10 +36,11 @@ module.exports = {
 
   rules: {
     '@typescript-eslint/no-explicit-any': 'warn',
-    '@typescript-eslint/no-unused-vars' : 'off',
+    '@typescript-eslint/no-unused-vars': 'off',
     quotes: ['warn', 'single'],
     'prefer-const': 'error',
     'react/no-children-prop': 'error',
+    'react-hooks/rules-of-hooks': 'warn',
     'react-hooks/exhaustive-deps': 'warn',
     'no-unused-vars': 'warn',
   },

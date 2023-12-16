@@ -5,15 +5,15 @@
 
 echo '*** Linting, Formatting and Testing before committing ***'
 
-
-npx tsc || (
-    echo -e '\033[0;31m❌❌❌ Failed Type check. ❌❌❌\033[0m'
-    false)
-
 npx lint-staged  || (
-    echo '❌❌❌ Failed lint-staged check. ❌❌❌'
+    echo '\033[0;31m✖✖✖Failed lint-staged check. ✖✖✖\033[0m'
     false;
 )
 
+npx tsc || (
+    echo -e '\033[0;31m✖✖✖ Failed Type check. ✖✖✖\033[0m'
+    false)
 
-echo '🏹🏹 Linting, Styling and Testing passed... This changes will be committed now. 🏹🏹'
+
+
+echo '\033[0;32m✔✔✔ Linting, Styling and Testing passed... This changes will be committed now. 🏹🏹'
