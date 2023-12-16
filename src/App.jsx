@@ -1,8 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import './styles.css';
+
 function App() {
   const name = 'sdf';
-  const [open, setIsOpen] = useState < String > '';
+  const [open, setIsOpen] = useState('');
+
+  useEffect(() => {
+    console.log(open);
+  }, []);
+  // const [opne, setIsopen] = useState < any > 'sfs'; //type annotation doesnot work in jsx files
+
+  // const hell = wefjk;
 
   return <h1>Hello Manually created react app</h1>;
 }

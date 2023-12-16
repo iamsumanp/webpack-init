@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
@@ -26,14 +27,14 @@ module.exports = {
                 '@babel/preset-env',
                 '@babel/preset-react',
                 '@babel/preset-typescript',
-              ], // @babel/preset-env transpiles es2015+ and preset-react transpiles react code
+              ], // @babel/preset-env transpiles es2015+ and preset-reackt transpiles react code
             },
           },
         ], // telling webpack to pipe the js ts files through babel. The loader will use Babel to compile modern es6+ files to es5
       },
       {
         //for css files
-        test: /\.css$/, //modify for scss
+        test: /\.css$/i, //modify for scss
         use: ['style-loader', 'css-loader'],
       },
       {
@@ -59,8 +60,7 @@ module.exports = {
 
   plugins: [
     new HtmlWebpackPlugin({
-      template: path.resolve(__dirname, '..', `./public/index.html`),
+      template: path.resolve(__dirname, '..', './public/index.html'),
     }),
   ],
-  stats: 'errors-only', //!
 };

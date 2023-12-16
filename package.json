@@ -8,6 +8,8 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "lint": "eslint \"./src/**/*.{js,jsx,ts,tsx,json}\""
   },
+  "lint": "eslint .",
+  "lint:fix": "eslint . --fix",
   "author": "",
   "license": "ISC",
   "devDependencies": {
