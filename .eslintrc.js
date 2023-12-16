@@ -36,6 +36,7 @@ module.exports = {
 
   rules: {
     '@typescript-eslint/no-explicit-any': 'warn',
+    '@typescript-eslint/no-unused-vars' : 'off',
     quotes: ['warn', 'single'],
     'prefer-const': 'error',
     'react/no-children-prop': 'error',
