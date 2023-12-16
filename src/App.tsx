@@ -1,15 +1,12 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import './styles.css';
+import Test from './Test';
 
 function App() {
-  const [count, setCount] = useState<number>(0);
-
-  // useEffect(() => {}, []);
-
   return (
     <div>
-      <span>Click sdfsf hdfere to increddfase counter</span>
-      <button onClick={() => setCount(count + 1)}>Click me {count}</button>
+      <span>WEBPACK BOILER PLATE</span>
+      <Test />
     </div>
   );
 }

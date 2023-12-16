@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const ReactRefreshWebpackPlugin = require('@pmmmwh/react-refresh-webpack-plugin'); //? to be added in webpack.dev.js
 
 module.exports = {
   //entry point
@@ -13,7 +14,11 @@ module.exports = {
     extensions: ['.tsx', '.jsx', '.js', '.ts'],
   },
   devtool: 'inline-source-map', //better for dev as source code is mapped in bundled code //use source-map for prod for better debugging
-
+  //? to be added in webpack.dev.js
+  devServer: {
+    hot: true,
+    open: true,
+  },
   module: {
     rules: [
       {
@@ -62,5 +67,8 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: path.resolve(__dirname, '..', './public/index.html'),
     }),
+
+    //experimental hot module replacement
+    new ReactRefreshWebpackPlugin(),
   ],
 };
